@@ -1,31 +1,21 @@
 void main(List<String> args) {
-  ///operasi umum yang akan kita butuhkan ketika bekerja dengan Strings
-  ///bagaimana mengambil lowercase dan uppercase dari string
-  ///dan bagaimana belajar perform a 'find' dan 'replace' operasi pada strings
+  ///jika kita ingin memodifikasi contents variable setelah diinisialisasi
+  ///ini yang dinamakan sebuah deklarasi dan inisialisasi variable untuk yg pertama kalinya
   String title = 'Dart course';
+  ///title yg bernilai asli akan di cetak
+  ///
+  ///ini beralasan waktu pertama kali akan mencetak print statement pertama,
+  ///yang menyimpan nilai string literal
   print(title);
 
-  ///Uppercase characters
-  ///mengambil nilai pada variable title dan mengkonversi semua karakter menjadi uppercase
-  ///
-  ///toUpperCase() adalah sebuah method sbg operator yang melakukan beberapa logika pada variable atau object
-  ///sehingga kunci untuk agar di ingat disini adalah
-  ///method menerapkan sebuah object dengan dot(titik) operator dan method tsb menggunakan tanda kurung
-  ///
-  ///dan print statement sendiri juga menggunakan tanda kurung,
-  ///tp tidak menerapkan object dengan menggunakan notasi dot(titik)
-  ///
-  ///programmer sering menyebutnya print itu method
-  ///akan tetapi print adalah function dan toUppercase adalah method
-  print(title.toUpperCase());
+  ///setelah print statement kita bisa menulis title seperti dibawah ini:
+  ///dengan menugaskan kembali untuk hasil dari sebuah expression 
+  ///disini kita mengambil variable yang sudah di deklarasi sebelumnya, dan memberinya value baru
+  ///dan step ini di namakan assignment variable dgn konsep baru
+  ///dan hanya akan bisa melakukan assign sebuah variable yang sudah di deklarasikan sebelumnya
+  title = title.toLowerCase();
 
-  ///menunjukkan pada method ini agar bisa digunakan di semua strings
-  ///termasuk pada string variables dan string literals
-  ///dgn kata lain, kita  melakukan method ini pada string literal:
-  String titles = 'Dart course'.toUpperCase();
-  print(titles);
-
-  ///begitu juga untuk method toLoweerCase()
-  String titless = 'Dart course'.toLowerCase();
-  print(titless);
+  ///print title sekali lagi untuk hasil lowercase
+  ///dan ini akan mencetak print statement ke dua
+  print(title);
 }
