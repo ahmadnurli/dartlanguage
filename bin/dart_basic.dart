@@ -1,25 +1,26 @@
 void main(List<String> args) {
-  ///mendefinisikan sebuah variabel bernama [name], dan variabel ini bisa kita gunakan kapan saja
-  ///menjadi referensi untuk menggunakan variabel ini
-  ///jadi apa yang akan terjadi ketika kita mendifinisikan variabel?
-  ///memory akan mengalokasikan ke dalam sistem kita
-  ///
-  ///untuk mengakses nilai yang sudah tersimpan di memory,
-  ///kita bisa mengggunakan variabel name.
   String name = 'Ahmad Nurli';
 
-  ///sehingga ketika kita print variabel name,
-  ///program kita akan menerima sebuah nilai dari variabel name
-  ///dan menampilkan nilai tersebut di konsol
+  ///mendeklarasikan dgn nama variabel age bertipe int dan inisialisasi nilai integer 36
+  ///int: up to 64-bit precision
+  ///Dart VM: from -2^63 to 2^63-1
+  ///Transpiled to JavaScript: from -2^53 to 2^53-1
+  int age = 36;
+
+  ///floating point number
+  ///double: 63-bit floating point numbers
+  ///double precision
+  double height = 1.84;
+
+  ///bool adalah tipe data yang bisa digunakan 2 nilai kemungkinan: 'true' dan 'false'
+  bool likesDart = true;
+
   print(name);
 
-  ///String name => deklarasi variabel(proses mendefinisikan variabel dan menamakan variabel tsb dengan name agar bisa digunakan)
-  ///= => assignment operator
-  ///'Ahmad Nurli' => inisialisasi variabel(proses inisialisasi nilai ke variabel)
-  ///; => terminator
-  ///
-  ///aturan pembuatan variabel:
-  ///-kombinasi dengan huruf kecil, huruf besar, angka, karakter underscore(myName1_2)
-  ///-tidak boleh di mulai dengan digit (8delapan)
-  ///-camelCase (myFirstName)
+  ///lakukan statement print variabel age
+  print(age);
+
+  print(height);
+
+  print(likesDart);
 }
