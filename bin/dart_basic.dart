@@ -1,44 +1,31 @@
 void main(List<String> args) {
-  ///kita punya tiga string terpisah seperti dibawah ini
-  print('This is a short sentence');
-  print('This is a short sentence,  I dare say');
-  print(
-      'This is an evan longer sentence, which will not fit inside a single line');
+  ///operasi umum yang akan kita butuhkan ketika bekerja dengan Strings
+  ///bagaimana mengambil lowercase dan uppercase dari string
+  ///dan bagaimana belajar perform a 'find' dan 'replace' operasi pada strings
+  String title = 'Dart course';
+  print(title);
 
-  ///dan biasanya digunakan untuk merepressentasikan beberapa baris dalam satu string
-  ///dengan satu cara melakukan semua 3 string diatas dalam satu print statement seperti ini:
+  ///Uppercase characters
+  ///mengambil nilai pada variable title dan mengkonversi semua karakter menjadi uppercase
   ///
-  ///ini kode yang valid, tp jika di jalankan hasil yang kita lihat
-  ///strings tsb telah dilipat/gabung/satukan dalam satu baris
+  ///toUpperCase() adalah sebuah method sbg operator yang melakukan beberapa logika pada variable atau object
+  ///sehingga kunci untuk agar di ingat disini adalah
+  ///method menerapkan sebuah object dengan dot(titik) operator dan method tsb menggunakan tanda kurung
   ///
-  ///sehingga kita ingin memiliki satu baris baru di akhir pada setiap strings
-  print('This is a short sentence.'
-      'This is a short sentence,  I dare say,'
-      'This is an evan longer sentence, which will not fit inside a single line');
-
-  ///satu cara untuk melakukannya menggunakan satu baris baru dengan karakter spesial
-  ///dengan bisa mendefiniskannya dengan sintak back-slash n '\n'
-  print('This is a short sentence.\n'
-      'This is a short sentence,  I dare say.\n'
-      'This is an evan longer sentence, which will not fit inside a single line.\n');
-
-  ///tetapi jika kita mempunyai banyak sekali strings,
-  ///akan sedikit membosankan untuk menambahkan baris karakter baru setiap akhir baris
+  ///dan print statement sendiri juga menggunakan tanda kurung,
+  ///tp tidak menerapkan object dengan menggunakan notasi dot(titik)
   ///
-  ///kita bisa melakukan multi line syntax, yg dapat dilakukan adalah
-  ///mendefinisikan strings dengan tiga double quotes di awal dan di akhir seperti ini:
-  print('''
-  This is a short sentence.
-  This is a short sentence,  I dare say.
-  This is an evan longer sentence, which will not fit inside a single line.
-  ''');
+  ///programmer sering menyebutnya print itu method
+  ///akan tetapi print adalah function dan toUppercase adalah method
+  print(title.toUpperCase());
 
-  ///kita juga bisa melakukan atau menyimpan ke dalam sebuah variabel
-  String s = """
-  This is a short sentence.
-  This is a short sentence,  I dare say.
-  This is an evan longer sentence, which will not fit inside a single line.
-""";
+  ///menunjukkan pada method ini agar bisa digunakan di semua strings
+  ///termasuk pada string variables dan string literals
+  ///dgn kata lain, kita  melakukan method ini pada string literal:
+  String titles = 'Dart course'.toUpperCase();
+  print(titles);
 
-  print(s);
+  ///begitu juga untuk method toLoweerCase()
+  String titless = 'Dart course'.toLowerCase();
+  print(titless);
 }
