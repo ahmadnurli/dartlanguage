@@ -1,62 +1,75 @@
 void main(List<String> args) {
-  ///kali ini kita akan mempelajari bagaimana cara mengecek jika,
-  ///sebuah string yang mengandung substring atau pola tertentu
-  ///dan kita juga akan melihat bagaimana to mengganti/mengubah isi nilai atau konten dalam sebuah string
-  ///
-  ///buat string literal ke sebuah string variable sbb:
-  String lovePizza = 'I love pizza';
+  ///kita akan berbicara tentang bagaimana kita bisa mengkonversi dua variable
+  ///dengan type data yang berbeda
+  ///kita akan lihat jika kita bisa mengkonversi variabel ke sebuah string
+  int age = 36;
 
-  ///check jika konten/nilai dari variable mempunyai kata pizza
-  ///gunakan method contains() yg bertugas untuk mengambil/mewakili kata
-  ///atau nilai yg mau kita cari dengan mengisi subject kata yang di cari didalam kurung pada method
-  ///statement ini akan menilai bool true jika kata yang dicari ditemukan, sebaliknya akan bernilai false
-  print(lovePizza.contains('pizza'));
+  ///untuk melakukannya, kita bisa mencoba sbb:
+  // String ageString = age; // sebuah nilai dgn bertipe int tidak bisa di assigned ke varibale string
+  ///hal tsb masuk akal karena age sebuabh integer
+  ///dimana string adalah sebauh kumpulan dari karakter
+  ///dan juga Dart pengetikan bahasa yang cukup kuat
+  ///yang tidak diperbolehkan untuk menetapkan secara langsung sebuah nilai int ke sebuah variable string
+  ///kita butuh penggunaan method yang bisa mengkonversi expression tsb ke sebuah string
+  ///dengan kata lain kita bisa mensugesti beberapa method yang mengembalikan sebuah nilai type string
+  ///disini kita bisa pilih toString()
+  String ageString = age.toString();
 
-  ///jika kita mau, kita juga bisa mendeklarasikan dahulu sebuah variable bool
-  ///dan menugaskan expressions ke sebuah variable
-  ///atau meneruskan fungsi sebagai argument
-  bool containsPizza = lovePizza.contains('pizza');
+  ///dengan konsep yang sama hal ini bisa berlaku pada type data double
+  double height = 1.84;
 
-  ///cetak nilai bool dari containsPizza
-  print(containsPizza);
+  ///tapi tidak hanya toString(), ada beberapa variant dari method toString()
+  ///yang bisa kita gunakan dan pilih bagaimana kita akan fomart string tsb
+  ///contoh: kita pilih toStringAsFixed() dgn value 1
+  String hightString = height.toStringAsFixed(1);
 
-  ///selanjutnya kita akan mencari cara untuk mengganti / re replace 'pizza' dengan 'pasta'
-  ///dimana methode ini membutuhkan 2 argument
-  ///pertama value yang akan kita ganti pada string yg asli(original),
-  ///kedua nilai value String yang menggantinya
-  ///koma sebagai pemisah kedua argument
-  String lovePasta = lovePizza.replaceAll('pizza', 'pasta');
+  ///kita akan lihat pada console menampilkan 1.8 dgn hanya 1 decimal
+  ///method ini cukup berguna jika kita memiliki banyak angka-angka pecahan
+  ///dan ingin membatasi berapa banyak yang akan ditampilkan di consol
+  print(hightString);
 
-  ///cetak hasil replace dari variable lovePaste
-  print(lovePasta);
+  ///opposite conversion (konversi berlawanan)
+  ///dimana kita memiliki string, dan kita ingin mengkonversinya ke sebuah int atau double
+  ///contoh:
+  String ratingString = '4.5';
 
-  ///jika ingin melakukan replace tidak dengan cara diatas,
-  ///kita bisa lakukan dengan re-assign the lovePizza seperti ini:
-  ///
-  ///namun dengan cara kode seperti diatas akan sedikit membingungkan,
-  ///karena cara penamaan variable akan membuat kita berpikiran bahwa
-  ///variable tsb berizi 'pizza',
-  ///sehingga jika kita pilih untuk mengganti pizza dengan pasta,
-  ///kita harus menetapkan ekspresi ini ke variable baru atau
-  ///
-  ///mungkin memilih untuk merubah nama variable yg berbeda
-  ///dan mungkin kita akan memanggilnya 'foodPreference'
-  String foodPreference = 'I love pizza';
-  foodPreference = foodPreference.replaceAll('pizza', 'pasta');
-  print(foodPreference);
+  ///sintak yang akan kita ketik sedikit berbeda
+  ///karena kita akan mengkonversi sebuah string ke tipe data double
+  ///dan pass in(masukkan string input)
+  double rating = double.parse(ratingString);
+  print(rating);
+
+  ///alasan kenapa hal ini berbeda karena tidak semua string bisa di konversi ke sebuah angka seperti int atau double
+  ///contoh:
+  String helloString = 'hello';
+  // double helloDuble = double.parse(helloString);
 
   /**
-   * Top Tip
-   * pilih nama variable yang bermakna berdasarkan
-   * nilai yang terkandung
-   * 
-   * ini membuat kode menjadi lebih mudah dipoahami
+    Unhandled exception:
+    FormatException: Invalid double
+    hello
    */
 
-  ///sekarang kita telah membahas dasar cara kerja dengan type String dalam bhs Dart
-  ///tapi masih banyak lagi yang bisa kita lakuna dengan type String,
-  ///method2 yang berbeda yang dapat di lakukan untuk manupulasi type String
-  ///-menghapus kata kata from pesan chat
-  ///-minyimpan kata2 yang menyinggung
-  ///-ketika pesan baru: scan(pindai) dan ganti(replace) kata kata yang menyinggung dgn replaceAll() method
+  /*konversi integer kek double dan sebaliknya*/
+  int x = 10;
+
+  ///Dart akan invalid untuk menetapkan sebuah nilai int secara langsung ke tipe data daouble
+  // double y = x; // a valu of type 'int' can't be asseined to a variable f type double
+  ///agar dapat bisa dilakukan, kita harus menggunakan .toDouble() method
+  double y = x.toDouble();
+  print(y);
+
+  ///disisi lain kita selalu bisa mendeklarasi sebuah variable double dan assign(menetapkan) sebuah integer literal
+  ///karena Dart mempromosikan integer literals ke double
+  ///sehingga menetapkan integer literal ke double aman
+  ///tapi menetapkan integer variable ke variable double hanya akan mungkin dijalan dengan method toDouble()
+  double z = 20;
+
+  ///disisi lainnnya, kita bisa mendeklarasikan sebuah variable type int
+  ///dan menetapkannya dengan sebuah literal dari tipe double, alih-alih kita harus menggunakan salah satu method
+  ///floor(), round(), cell(), or truncate() tergantung spesifikasi konversi yang kita butuhkan
+  int w = 40.6.round();
+
+  ///kosol akan menampilkan nilai 41
+  print(w);
 }
