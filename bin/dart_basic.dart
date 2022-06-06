@@ -1,75 +1,74 @@
 void main(List<String> args) {
-  ///kita akan berbicara tentang bagaimana kita bisa mengkonversi dua variable
-  ///dengan type data yang berbeda
-  ///kita akan lihat jika kita bisa mengkonversi variabel ke sebuah string
-  int age = 36;
+  ///kita akan mempelajari tentang variasi group operator yang available ketika
+  ///bekerja dengan expressions dalam bhs Dart
+  ///dan banyak dari oprator2 tsb identik atau serupa di bhs pemrograman lain
+  ///
+  ///dan kali ini ita akan focus pada aritmatik operations, penambahan, prioritas operator dlm bhs Dart
+  ///
+  ///untuk memulai kita bisa menggunakan print statement,
+  ///dan mencoba untuk mencetak hasil dari expressions yang berbeda
+  print(5 + 2);
 
-  ///untuk melakukannya, kita bisa mencoba sbb:
-  // String ageString = age; // sebuah nilai dgn bertipe int tidak bisa di assigned ke varibale string
-  ///hal tsb masuk akal karena age sebuabh integer
-  ///dimana string adalah sebauh kumpulan dari karakter
-  ///dan juga Dart pengetikan bahasa yang cukup kuat
-  ///yang tidak diperbolehkan untuk menetapkan secara langsung sebuah nilai int ke sebuah variable string
-  ///kita butuh penggunaan method yang bisa mengkonversi expression tsb ke sebuah string
-  ///dengan kata lain kita bisa mensugesti beberapa method yang mengembalikan sebuah nilai type string
-  ///disini kita bisa pilih toString()
-  String ageString = age.toString();
+  ///serupa dengan kita ubah operator minus (-)
+  print(5 - 2);
 
-  ///dengan konsep yang sama hal ini bisa berlaku pada type data double
-  double height = 1.84;
+  ///jika kita ingin multiplay(*) kita bisa menggunakan multiplication operators
+  print(5 * 2);
 
-  ///tapi tidak hanya toString(), ada beberapa variant dari method toString()
-  ///yang bisa kita gunakan dan pilih bagaimana kita akan fomart string tsb
-  ///contoh: kita pilih toStringAsFixed() dgn value 1
-  String hightString = height.toStringAsFixed(1);
+  ///dan jika kita ingin melakukan divede (/) kita bisa menggunakan division operators
+  ///dimana akan menghasilkan floating point dari operator ini
+  print(5 / 2);
 
-  ///kita akan lihat pada console menampilkan 1.8 dgn hanya 1 decimal
-  ///method ini cukup berguna jika kita memiliki banyak angka-angka pecahan
-  ///dan ingin membatasi berapa banyak yang akan ditampilkan di consol
-  print(hightString);
+  ///dan jika kita ingin melakukan kalkulasi integer division dua angka
+  ///kita perlu membutuhkan integer division operator (~/)
+  ///yang diwakili dengan tilde (~) dan grais miring (-)
+  print(5 ~/ 2);
 
-  ///opposite conversion (konversi berlawanan)
-  ///dimana kita memiliki string, dan kita ingin mengkonversinya ke sebuah int atau double
-  ///contoh:
-  String ratingString = '4.5';
+  ///dan ketika kita berbicara tentang integer, kita juga harus mencakup modulo operator
+  ///yang akan kita gunakan untuk mendapatkan sisa dari integer pembagian
+  print(5 % 2);
 
-  ///sintak yang akan kita ketik sedikit berbeda
-  ///karena kita akan mengkonversi sebuah string ke tipe data double
-  ///dan pass in(masukkan string input)
-  double rating = double.parse(ratingString);
-  print(rating);
+  ///satu hal untuk diingat, adalah semua operator diatas memiliki operator penugasan tambahan yang sesuai
+  ///maksudnya adalah, jika kita ingin, kita bisa melakukan deklarasi sbb:
+  int x = 5;
+  x = x + 2;
 
-  ///alasan kenapa hal ini berbeda karena tidak semua string bisa di konversi ke sebuah angka seperti int atau double
-  ///contoh:
-  String helloString = 'hello';
-  // double helloDuble = double.parse(helloString);
+  ///x akan bernilai 7
+  print(x);
 
-  /**
-    Unhandled exception:
-    FormatException: Invalid double
-    hello
-   */
+  ///juga ada cara versi singkat pada sintak seperti ini:
+  ///cara kedua lebih ringkas
+  x += 2;
+  print(x);
 
-  /*konversi integer kek double dan sebaliknya*/
-  int x = 10;
-
-  ///Dart akan invalid untuk menetapkan sebuah nilai int secara langsung ke tipe data daouble
-  // double y = x; // a valu of type 'int' can't be asseined to a variable f type double
-  ///agar dapat bisa dilakukan, kita harus menggunakan .toDouble() method
-  double y = x.toDouble();
+  ///cara ini bisa dibekerja pada penambahan, pengurangan, perkalian,
+  ///serta pemgian floating point, perlu diingat bahwa sintak ini hanya akan bisa dilakukan
+  ///hanya jika x bertipe data double
+  double y = 3;
+  y /= 2;
   print(y);
 
-  ///disisi lain kita selalu bisa mendeklarasi sebuah variable double dan assign(menetapkan) sebuah integer literal
-  ///karena Dart mempromosikan integer literals ke double
-  ///sehingga menetapkan integer literal ke double aman
-  ///tapi menetapkan integer variable ke variable double hanya akan mungkin dijalan dengan method toDouble()
-  double z = 20;
+  ///kita juga bisa menggunakan integer division (~/)
+  ///dalam hal ini variable harus bertipe int
+  x ~/= 2;
+  print(x);
 
-  ///disisi lainnnya, kita bisa mendeklarasikan sebuah variable type int
-  ///dan menetapkannya dengan sebuah literal dari tipe double, alih-alih kita harus menggunakan salah satu method
-  ///floor(), round(), cell(), or truncate() tergantung spesifikasi konversi yang kita butuhkan
-  int w = 40.6.round();
+  ///terakhir kita juga punya  modulo operator
+  x %= 2;
+  print(x);
 
-  ///kosol akan menampilkan nilai 41
-  print(w);
+  ///sehingga dgn bhs Dart kita menggunakan variasi operator aritmatika
+  ///dan juga memiliki penugasan tambahan untuk masing masing operator
+  ///
+  ///selanjutnya kita coba mempertimbangkan pernayataan berikut:
+  ///Dart mengevaluasi sesuai dengan perioritas relasi atar dua buah operator yg berbeda
+  ///sehingga hasilnya akan mencetaknilai 4
+  ///karena multiplication atau perkalian dijalankan lebih dulu sebelum operator pengurangan
+  print(10 - 2 * 3);
+
+  ///sebagai gantinya jika kita ingin menghitung terlebih dahulu 10 -2, kemudian dikalikan 3
+  ///kita menggunakan tanda kurung, dan hasilnya akan bernilai 24
+  ///sehingga dalam banyak kasus, kita akan menemukan prioritas default yang sesuai
+  ///perlu diingat bahwa anda bisa menggunakan tanda kurung untuk mengubah urutan operasi
+  print((10 - 2) * 3);
 }
