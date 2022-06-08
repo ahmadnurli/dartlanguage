@@ -1,56 +1,51 @@
 void main(List<String> args) {
-  ///saat ini kita akan memabahas ttg Increment dan Decrement Operator
-  // int x = 1;
+  ///lesson saat ini kita akan mengetahui logika dan relational operator dlm bhs Dart
+  ///ralational operator digunakan untuk mengkomparasi 2 buah expression,
+  ///yang semuanya memiliki kesamaan, dimana hasil value atau nilai akhirnya berupa boolean
+  ///sangat cocok untuk menunggu waktu process logika
+  ///mengeksekusi hanya beberapa kode ketika kondisi true/false
+  ///
+  ///kita mulai dengan beberapa contoh variasi seperti operator relational
+  ///jalan programm berikut yang mengkompare angka 5 dan 2 dengan operator yang berbeda
+  ///kita bisa menggunakan banyak expression seperti mix variable dan literal dgn memberikan
+  ///2 buah comparison yang kompatibel
+  ///maksud dari kompatibel: kita bisa compare sebuah integer dengan double karena keduanya berupa angka
+  ///tapi tidak bisa kita compare sebuah interger dengan string karena operator relasi tidak bisa
+  ///mendefinisikan dua buat tipe yg berbeda
+  ///contoh: print(5 < 'hello');
+  ///
+  ///berikut contoh dengan int literal
+  print(5 == 2); // equal
+  print(5 != 2); // not equal
+  print(5 >= 2); // greater or equal to
+  print(5 > 2); // greater tan
+  print(5 <= 2); // less or equal to
+  print(5 < 2); // less than
 
-  ///kita bisa menggunakan operator penambahan
-  // x += 1;
+  ///tapi terkadang kita butuh meng compare multiple expressions dalam 1 kali jalan
+  ///untuk itu kita bisa menggunakan logika operator
+  /// || ini dsebut logika operator
+  print(5 < 2 || 5 < 7); // true
 
-  ///ini merupakan cara yang lebih ringkas dan inrement dan dcrement variable
-  // x++;
-  // print(x);
+  ///demikian pula kita bisa mengganak AND operator -> &&
+  print(5 < 2 && 5 < 7); // false
 
-  ///demikian juga dengan decrement
-  // x--;
-  // print(x);
+  ///pada banyak kasus yang harus diingat bahwa operator relationals mempunyai
+  ///keuatamaan dari pada operator logika, artinya ketika kita punya ekspresi yang kompleks
+  ///kita bisa menggunakan tanda kurung jika ingin melakukan evaluasi pertama pada sebuah ekspresi
+  print((5 < 2 && 5 < 7) && 5 != 6); // false
 
-  ///bisa juga seperti
-  // ++x;
-  // --x;
+  ///selain dari semua operator di atas, kita juga bisa menggunakan not operator
+  ///yang akan menghasilkan sebuah ekspresi dan menegasikan ekspresi tsb
+  ///dan kita gunakan not operator di depan ekpressi
+  ///hasil dari ekpressi ini akan bernilai true karena evaluasi ekpressi tsb berninlai false
+  print(!(5 < 2)); // true
 
-  ///sekarang kita fokus pada operator increment
-  ///untuk memahami lebih baik lagi ttg x++ dan ++x;
-  ///kita coba menetapkan variable interger baru
-  int x = 1;
-
-  ///jika kita menggunakan postfix, dimana increement diletakkan setelah variable
-  ///maka nilai akan tercetak x: 2, y: 1
-  ///kesimpulannya: ketika menggunakan postfix increment operator
-  ///maka nilai x akan diterapkan ke y lebih dulu, baru kemudian dilakukan penambahan pd variable x
-  int y = x++;
-
-  ///dan kita cetak menggunakan string interpolation
-  print('x: $x, y: $y');
-
-  ///jika kita menggunakan prefix, dimana increement diletakkan sebelum variable
-  ///maka nilai akan tercetak u: 2, z: 2
-  ///kesimpulannya: ketika menggunakan prefix increment operator
-  ///maka akan dilakukan penambahan pada variable u, baru kemudian dilakukan penerapan pd variable z
-  int u = 1;
-  int z = ++u;
-  print('u: $u, z: $z');
-
-  ///dan mungkin banyak yang bertanya kenapa bisa terjadi/ bisa melakukan hal tsb diatas
-  ///dan kita semua bisa menjawabnya karena sebagian besar bhs pemrograman merupakan keluarga dari bhs C
-  ///yang mengadopsi selama 50 thn terakhir
-
-  /*Quiz*/
-  ///a bernilai 1
-  int a = 1;
-  ///b bernilai 1
-  ///seiring program berjalan a mengalami proses increment sehingga bernilai 2
-  int b = a++;
-  ///disini b bernilai 0 setelah prosess decrement di jalankan pd variable b
-  ///dan variable c bernilai 0 karena hasil expression dari nilai variable b setelah prosess decrement
-  int c = --b;
-  print('a: $a, b: $b, c: $c');
+  ///contoh yang lebih menarik
+  ///kita bisa menggunakan atau melakukan cek validasi email
+  ///dalam kasus ini kita tidak berekspressi dgn angka
+  ///tapi selama ekspressi tsb terdapat evaluasi AND operator bernilai boolean,
+  ///sintak ini dinyatakan valid
+  String email = 'test@example.com';
+  print(email.isNotEmpty && email.contains('@'));
 }
