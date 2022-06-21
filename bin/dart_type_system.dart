@@ -1,51 +1,51 @@
 void main(List<String> args) {
-  ///pada pelajaran terakhir, kita telah belajar pendefinisian variable
-  ///yang hanya bisa dibaca oleh program dgn 'final' keyword, dan lebih cenderung menggunakan
-  ///'final' dari pada 'var' jika memungkinkan
+  ///pada program dibawah ini, semua variable bertipe String
+  ///variable mana saja yang bisa dideklarasikan dgn menggunakan const, final dan var ?
+  ///ketika hasil dari program tsb ttp berjalan
+  ///sbg mengingatkan, kita harus lebih memilih const dari pada final dari pada var.
+
+  ///cari tahu variable mana saja yang seharusnya menggunakan const, final, dan var?
+  /*
+  String text = ' I like pizza.';
+  String topping = 'with tomatoes';
+  String favourite = '$text $topping';
+  String newText = favourite.replaceAll('pizza', 'pasta');
+  favourite = 'Now I like curry';
+  print(newText);
+  */
+  ///dua variable pertama diinisialisasi dgn String literal, yang bersifat compile-time constants
+  ///dgn alasan ini kita bisa mendeklarasikannya dgn const
+  const text = ' I like pizza.';
+  const topping = 'with tomatoes';
+
+  ///kemudian ekspresi kombinasi dua variable string interpolation
+  ///Dart cukup pintar untuk menyelesaikannya menjadi compile-time constants(konstant waktu kompilasi)
+  ///sehingga jika kita ingin, kita bisa coba mendeklarasikannya dgn const jg
   ///
-  ///dalam Dart ada satu keyword yg mempunyai pembatasan lebih
-  ///dari pada final yang disebut 'const'
+  ///tpi jika terapkan menjadi const akan terjadi error: variable constant tidak bisa menerapkan nilai,
+  ///karena disini kita menerapkannya kembali dgn nilai baru 'Now I like curry'
   ///
-  ///jika kita buat pertimbangan dari kode yg sdh pernah kita tulis
-  ///kita bisa mendeklarasikan variable sbg const
-  ///dgn begini kita mendifinisikan sebuah compile-time constant
-  ///'variable 'const' memiliki performa yg sangat baik, jika kita menggunakan const
-  ///dart bisa mengoptimasisakan kode yang dihasilkan dan program yg lebih efisien
-  const title = 'Dart Course';
-
-  ///sehingga dalam kasus ini kita mendeklarasikan variable sbg const,
-  ///karena disini menginisialisikan string literal,
-  ///dan semua literal menngkompilasi(compile time) dirinya sendiri
+  ///agar program kita valid, ada dua pilihan,
+  ///pertama deklarasi variable favourite dgn var, sehingga error akan hilang,
+  ///tetapi alangkah baiknya menggunakan const jika memungkinkan.
   ///
-  ///jika kita coba mendeklarasikan variable sbg const
-  ///ini akan terjadi error yang memberitahu kita const variable harus diinisialisasi
-  ///dgn nilai konstant,
-  ///dan karenanya Dart hanya bisa mengevaluasi nilai dari expression ini ketika runtime
-  ///sehingga kita tidak bisa menerapkan(assign) nya ke variable const
-  const titleUppercased = title.toUpperCase();
+  ///cara ke dua kita membuat variable baru untuk menampung nilai baru ('Now I like curry')
+  ///contohnya kita beri nama variable newFavourite, dan karena variable favourite kita set satu kali,
+  ///kita bisa mendeklarasikannya dgn const
+  const favourite = '$text $topping';
 
-  ///disisi lain ada operasi tertantu yang mana Dart bisa memperbaikinya ketika compile time.
-  print(titleUppercased);
+  ///lalu kenapa tidak terjadi error?
+  ///kita mempunya variable newText, yang diinisialisasi dgn expression replaces kata pizza menjadi pasta.
+  ///ini expression yang tidak konstanta waktu kompilasi(compilie-time constants)
+  ///sehingga kita bisa mendeklarasikannya sbg const, karena hanya di cet satu kali,
+  ///kita bisa deklarasikan dgn final
+  final newText = favourite.replaceAll('pizza', 'pasta');
 
-  ///sbg contoh kita mendefinisikan dua buah variable const:
-  const x = 1;
-  const y = 2;
+  ///Dart memberitahu ini variable baru yang blm digunakan,
+  ///dan belum ada kejelasan sebelum kita mengubahnya menjadi variable baru,
+  const newFavourite = 'Now I like curry';
+  print(newText);
 
-  ///dan kita mendifinisikan const sprt ini juga:
-  ///ini merupakan sintak yg valid, karena Dart cukup pintar untuk mengevaluasi x + y sbg
-  ///compile time constant, sehingga z juga bisa menggunakan const.
-  ///karena semua variable ini const, maka hanya bisa di set satu kali, sprt variable 'final'
-  const z = x + y;
-  print(z);
-
-  ///dalam artian kita tidak bisa menulis kode sprt di bawah ini:
-  z = 4; // dart akan memberitahu bahwa sintak ini tidak valid.
-
-  ///sbg pengingat, bagaimana cara kerja dari 'var', 'final', dan 'const'
-  ///kita bisa menggunakan dan menge-set 'var' lebih dari satu kali
-  ///kita bisa menggunakan dan menge-set 'final' hanya satu kali(variable yg hanya bisa dibaca sj)
-  ///dan kita bisa menggunakna dan meng-set 'const' untuk variable2 yg merupakan compile time constants.
-  ///
-  ///dan dalam sebuah peraturan yg praktis, kita harus selalu memilih 'const' ketimbang 'final'
-  ///dan kita harus selalu memilih 'final' ketimbang 'var'
+  ///kita berharap latihan ini membuat kita menjadi lebih jelas dalam penggunaan var, final dan const.
+  ///dalam beberapa kasus, kita akan menggunakan keyword tsb
 }
