@@ -1,51 +1,26 @@
 void main(List<String> args) {
-  ///pada program dibawah ini, semua variable bertipe String
-  ///variable mana saja yang bisa dideklarasikan dgn menggunakan const, final dan var ?
-  ///ketika hasil dari program tsb ttp berjalan
-  ///sbg mengingatkan, kita harus lebih memilih const dari pada final dari pada var.
-
-  ///cari tahu variable mana saja yang seharusnya menggunakan const, final, dan var?
-  /*
-  String text = ' I like pizza.';
-  String topping = 'with tomatoes';
-  String favourite = '$text $topping';
-  String newText = favourite.replaceAll('pizza', 'pasta');
-  favourite = 'Now I like curry';
-  print(newText);
-  */
-  ///dua variable pertama diinisialisasi dgn String literal, yang bersifat compile-time constants
-  ///dgn alasan ini kita bisa mendeklarasikannya dgn const
-  const text = ' I like pizza.';
-  const topping = 'with tomatoes';
-
-  ///kemudian ekspresi kombinasi dua variable string interpolation
-  ///Dart cukup pintar untuk menyelesaikannya menjadi compile-time constants(konstant waktu kompilasi)
-  ///sehingga jika kita ingin, kita bisa coba mendeklarasikannya dgn const jg
+  ///pada pelajaran sebelmnya kita telah lihat bagaimana Dart bia memnyimpulkan tipe variable
+  ///jika kita mendeklarasikannye sbg var, final, dan const.
   ///
-  ///tpi jika terapkan menjadi const akan terjadi error: variable constant tidak bisa menerapkan nilai,
-  ///karena disini kita menerapkannya kembali dgn nilai baru 'Now I like curry'
+  ///ada satu keyword lagi  yang harus kita sadari, yang di sebut 'dynamic'
+  var x = 10;
+
+  ///kita bisa menginisialisasi x kembali
+  ///hal ini akan terjadi error karena Dart telah menyimpulkan variable x ke tipe data int
+  ///dan kita tidak bisa menerapkan ke tipe data bool
+  x = true;
+
+  ///namun, kita bisa mendeklarasikan sbg berikut:
+  dynamic y = 10;
+
+  ///ini karena kita mendeklarasikan variable dynamic, variable y bisa diinisialisasi tipe apa saja
+  y = true;
+
+  ///pada umumnya ini bukan merupkan cara yang tepat
+  ///karena type safety membantu kita ketika menulis program yang aman
+  ///tapi ada situasi dimana kita tidak bisa menghindari penggunaan dynamic
   ///
-  ///agar program kita valid, ada dua pilihan,
-  ///pertama deklarasi variable favourite dgn var, sehingga error akan hilang,
-  ///tetapi alangkah baiknya menggunakan const jika memungkinkan.
-  ///
-  ///cara ke dua kita membuat variable baru untuk menampung nilai baru ('Now I like curry')
-  ///contohnya kita beri nama variable newFavourite, dan karena variable favourite kita set satu kali,
-  ///kita bisa mendeklarasikannya dgn const
-  const favourite = '$text $topping';
-
-  ///lalu kenapa tidak terjadi error?
-  ///kita mempunya variable newText, yang diinisialisasi dgn expression replaces kata pizza menjadi pasta.
-  ///ini expression yang tidak konstanta waktu kompilasi(compilie-time constants)
-  ///sehingga kita bisa mendeklarasikannya sbg const, karena hanya di cet satu kali,
-  ///kita bisa deklarasikan dgn final
-  final newText = favourite.replaceAll('pizza', 'pasta');
-
-  ///Dart memberitahu ini variable baru yang blm digunakan,
-  ///dan belum ada kejelasan sebelum kita mengubahnya menjadi variable baru,
-  const newFavourite = 'Now I like curry';
-  print(newText);
-
-  ///kita berharap latihan ini membuat kita menjadi lebih jelas dalam penggunaan var, final dan const.
-  ///dalam beberapa kasus, kita akan menggunakan keyword tsb
+  ///ketika kita mempunyai data dgn format JSON, yang mempunyai value di dalamnya
+  ///bisa saja berbeda tipe data, sehingga jika kita membaca data tsb di dalam Dart,
+  ///kita mungkin bisa menggunakan dynamic
 }
