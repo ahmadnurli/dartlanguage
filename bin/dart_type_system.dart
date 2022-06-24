@@ -1,18 +1,14 @@
 void main(List<String> args) {
-  ///sbg contoh:
-  ///
-  ///karena semua logic berdasarakan umur, maka umur kita definisikan sgb const
-  ///penginisialisasi ini dgn compile-time constant
-  const age = 14;
-  if (age < 16) {
-    print('Juniar ticket');
-    print('Prices is \$8');
-  } else if (age >= 60) {
-    print('Senior ticket');
-    print('Prices is \$6');
+  ///[Exercise] if/else statements
+
+  const netSalary = 2000; // gaji bersih
+  const expenses = 1800; // biaya
+
+  if (netSalary > expenses) {
+    print('You have saved \$${netSalary - expenses} this month');
+  } else if (expenses > netSalary) {
+    print('You have saved \$${expenses - netSalary} this month');
   } else {
-    print('Regular ticket');
-    print('Prices is \$10');
+    print('Your balance hasn\'t changed');
   }
-  print('Enjoy your visit');
 }
